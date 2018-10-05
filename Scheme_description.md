@@ -558,6 +558,7 @@
 |*Archive_inventory*   |`String`     |Номер описи       |
 |*Archive_number*  |`String`     |Номер дела в архиве           |
 |*Data_source*   |`String`    |Источник данных       |
+|*Input_date*   |`Timestamp`    |Дата внесения данных       |
 
 
 
@@ -722,6 +723,6 @@
 # Merged
 Поле для хранения информации о слиянии информации  о репрессированных лицах в базе. Содержит ссылку на уникальный номер репрессированного лица в базе, к которому была перемещена информация.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1MDUzOTgxNCwxNjU1Mjg3MjE0LDEwNT
-IwMTkwNzUsLTI3Nzc3NzIxOCw2OTYxNjU1MzRdfQ==
+eyJoaXN0b3J5IjpbMzgyODcxNzksMTY1NTI4NzIxNCwxMDUyMD
+E5MDc1LC0yNzc3NzcyMTgsNjk2MTY1NTM0XX0=
 -->
