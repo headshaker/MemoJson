@@ -545,7 +545,7 @@
 |*Input_date*   |`Timestamp`    |Дата внесения данных       |
 
 
-## Archive_numberdetails
+## Archive_details
 
 Поле для хранения информации о архивном номере следственного дела репрессированного лица.
 
@@ -724,6 +724,6 @@
 # Merged
 Поле для хранения информации о слиянии информации  о репрессированных лицах в базе. Содержит ссылку на уникальный номер репрессированного лица в базе, к которому была перемещена информация.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzMTEyODg2MCwxMDUyMDE5MDc1LC0yNz
-c3NzcyMTgsNjk2MTY1NTM0XX0=
+eyJoaXN0b3J5IjpbLTE5MDg4NjI3NjUsMTA1MjAxOTA3NSwtMj
+c3Nzc3MjE4LDY5NjE2NTUzNF19
 -->
