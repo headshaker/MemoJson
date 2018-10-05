@@ -274,7 +274,14 @@
 
 Допустимые значения: `single`, `married`, `divorced`, `None`
 
-Тип данных - `String`. 
+Тип данных - `Array`.
+
+|Поле          |Тип данных |Описаине                             |
+|--------------|---------- |-------------------------------------|
+|*Family_status*  |`Array`     | Тип семейного положения           |
+|*Data_source*   |`String`    |Источник данных       |
+|*Input_date*   |`Timestamp`    |Дата внесения данных       |
+ 
 
 
 ## Arrest_date
@@ -717,5 +724,6 @@
 # Merged
 Поле для хранения информации о слиянии информации  о репрессированных лицах в базе. Содержит ссылку на уникальный номер репрессированного лица в базе, к которому была перемещена информация.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3Nzc3NzIxOCw2OTYxNjU1MzRdfQ==
+eyJoaXN0b3J5IjpbLTE1NjQ1ODczMjgsLTI3Nzc3NzIxOCw2OT
+YxNjU1MzRdfQ==
 -->
