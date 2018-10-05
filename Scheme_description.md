@@ -570,7 +570,7 @@
 
 |Поле          |Тип данных |Описаине                             |
 |--------------|---------- |-------------------------------------|
-|*Memory_bookData_source*   |`String`     |Название Источника данных        |
+|*Data_source*   |`String`     |Название Источника данных        |
 |*Input_date*   |`Timestamp`    |Дата внесения данных       |
 
 
@@ -723,6 +723,6 @@
 # Merged
 Поле для хранения информации о слиянии информации  о репрессированных лицах в базе. Содержит ссылку на уникальный номер репрессированного лица в базе, к которому была перемещена информация.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzgyODcxNzksMTY1NTI4NzIxNCwxMDUyMD
-E5MDc1LC0yNzc3NzcyMTgsNjk2MTY1NTM0XX0=
+eyJoaXN0b3J5IjpbMTI2NzEyNTAwOCwxNjU1Mjg3MjE0LDEwNT
+IwMTkwNzUsLTI3Nzc3NzIxOCw2OTYxNjU1MzRdfQ==
 -->
