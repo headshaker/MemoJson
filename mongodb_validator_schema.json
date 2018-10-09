@@ -1,0 +1,1958 @@
+{
+  "$jsonSchema": {
+    "title": "The Root Schema",
+    "description": "An explanation about the purpose of this instance.",
+    "properties": {
+      "cards": {
+        "title": "The Cards Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "bsonType": "array",
+        "items": {
+          "title": "The Items Schema",
+          "description": "Карточка следственного дела репрессированного лица",
+          "bsonType": "object",
+          "properties": {
+            "full_name": {
+              "title": "The Full_name Schema",
+              "description": "Список ФИО (вариантов написания ФИО) репрессированного лица в следственном деле",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "ФИО (вариант написания ФИО), упоминаемый в следственном деле",
+                "bsonType": "object",
+                "required": [
+                  "input_date",
+                  "data_source",
+                  "raw_full_name"
+                ],
+                "properties": {
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "raw_full_name": {
+                    "title": "The Raw_full_name Schema",
+                    "description": "Полное имя так, как оно записано в следственном деле (с опечатками, описками и т.п. Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "last_name": {
+                    "title": "The Last_name Schema",
+                    "description": "Фамилия репрессированного лица (нормализованная)",
+                    "bsonType": "string"
+                  },
+                  "middle_name": {
+                    "title": "The Middle_name Schema",
+                    "description": "Отчество репрессированного лица (нормализованное). Если в источнике данных указаны инициалы - указать первую букву инициалов отчества с точкой.",
+                    "bsonType": "string"
+                  },
+                  "first_name": {
+                    "title": "The First_name Schema",
+                    "description": "Имя репрессированного лица (нормализованное). Если в источнике данных указаны инициалы - указать первую букву инициалов имени с точкой",
+                    "bsonType": "string"
+                  }
+                }
+              }
+            },
+            "gender": {
+              "title": "The Gender Schema",
+              "description": "Список вариантов пола репрессированного лица, указанных в следственном деле",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант пола репрессированного лица из следственного дела",
+                "bsonType": "object",
+                "required": [
+                  "input_date",
+                  "data_source"
+                ],
+                "properties": {
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  },
+                  "gender": {
+                    "enum": [
+                      "male",
+                      "female"
+                    ],
+                    "title": "The Gender Schema",
+                    "description": "Пол репрессированного лица из списка. Допустимые значения 'male'  или   'female'."
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  }
+                }
+              }
+            },
+            "birth_date": {
+              "title": "The Birth_date Schema",
+              "description": "Список вариантов даты рождения репрессированного лица из следственного дела",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант даты рождения репрессированного лица из следственного дела",
+                "bsonType": "object",
+                "required": [
+                  "input_date",
+                  "data_source",
+                  "raw_birth_date"
+                ],
+                "properties": {
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "raw_birth_date": {
+                    "title": "The Raw_birth_date Schema",
+                    "description": "Дата рождения репрессированного лица как в следственном деле (с опечатками, описками и т.д.).",
+                    "bsonType": "string"
+                  },
+                  "year": {
+                    "title": "The Year Schema",
+                    "description": "Год рождения репрессированного лица (нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "month": {
+                    "title": "The Month Schema",
+                    "description": "Месяц рождения репрессированного лица (нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "day": {
+                    "title": "The Day Schema",
+                    "description": "День рождения репрессированного лица (нормализованный).",
+                    "bsonType": "int"
+                  }
+                }
+              }
+            },
+            "birth_place": {
+              "title": "The Birth_place Schema",
+              "description": "Список мест рождения репрессированного лица из следственного дела",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант места рождения репрессированного лица из следственного дела",
+                "bsonType": "object",
+                "properties": {
+                  "country": {
+                    "title": "The Country Schema",
+                    "description": "Страна рождения репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "republic": {
+                    "title": "The Republic Schema",
+                    "description": "Республика рождения репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "region": {
+                    "title": "The Region Schema",
+                    "description": "Область (Губерния) рождения репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "district": {
+                    "title": "The District Schema",
+                    "description": "Район (Уезд) рождения репрессированного лица (нормализованный).",
+                    "bsonType": "string"
+                  },
+                  "city": {
+                    "title": "The City Schema",
+                    "description": "Населенный пункт рождения репрессированного лица (нормализованный).",
+                    "bsonType": "string"
+                  },
+                  "raw_birth_place": {
+                    "title": "The Raw_birth_place Schema",
+                    "description": "Место рождения репрессированного лица как в следственном деле (с опечатками, описками и т.д.). Нечитаемые буквы можно заменить символом '_'. ",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  },
+                  "location": {
+                    "title": "The Location Schema",
+                    "description": "Геопространственные данные места рождения репрессированного лица",
+                    "bsonType": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "Point",
+                          "MultiPoint",
+                          "Polygon",
+                          "MultiPolygon"
+                        ],
+                        "title": "The Type Schema",
+                        "description": " Тип геометрического объекта. Допустимые значения: \"Point\", \"MultiPoint\", \"Polygon\", \"MultiPolygon\" "
+                      },
+                      "coordinates": {
+                        "title": "The Coordinates Schema",
+                        "description": "Географические координаты в соответствии со стандартом GeoJson. ",
+                        "bsonType": "string"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "raw_birth_place",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "social_origin": {
+              "title": "The Social_origin Schema",
+              "description": "Список вариантов социальных происхождений репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант социального происхождения репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "social_origin": {
+                    "title": "The Social_origin Schema",
+                    "description": "Социальное происхождение репрессированного лица (Нормализованные).",
+                    "bsonType": "string"
+                  },
+                  "raw_social_origin": {
+                    "title": "The Raw_social_origin Schema",
+                    "description": "Социальное происхождение репрессированного лица  как в следственном деле (с опечатками, описками и т.д.). Нечитаемые буквы можно заменить символом '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_social_origin",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "nationality": {
+              "title": "The Nationality Schema",
+              "description": "Список вариантов национального происхождения репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант национальной принадлежности репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "nationality": {
+                    "title": "The Nationality Schema",
+                    "description": "Национальная принадлежность репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "raw_nationality": {
+                    "title": "The Raw_nationality Schema",
+                    "description": " Национальная принадлежность репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'. ",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_nationality",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "citizenship": {
+              "title": "The Citizenship Schema",
+              "description": "Список вариантов гражданства (подданства) репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант гржданства (подданства) репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "citizenship": {
+                    "title": "The Citizenship Schema",
+                    "description": "Гражданство (подданство) репрессированного лица (нормализованное).",
+                    "bsonType": "string"
+                  },
+                  "raw_citizenship": {
+                    "title": "The Raw_citizenship Schema",
+                    "description": "Гражданство (подданство) репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'. ",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_citizenship",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "religion": {
+              "title": "The Religion Schema",
+              "description": "Список вариантов вероисповедания репрессированного лица из следственного дела",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант вероисповедания репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "required": [
+                  "religion",
+                  "raw_religion",
+                  "data_source",
+                  "input_date"
+                ],
+                "properties": {
+                  "religion": {
+                    "title": "The Religion Schema",
+                    "description": "Вероисповедание репрессированного лица (нормализованное).",
+                    "bsonType": "string"
+                  },
+                  "raw_religion": {
+                    "title": "The Raw_religion Schema",
+                    "description": "Вероисповедание репрессированного лица (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                }
+              }
+            },
+            "education": {
+              "title": "The Education Schema",
+              "description": "Список вариантов образования репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант образования репрессированного лица из следственного дела",
+                "bsonType": "object",
+                "properties": {
+                  "education_level": {
+                    "title": "The Education_level Schema",
+                    "description": "Уровень образования репрессированного лица (нормализованный).",
+                    "bsonType": "string"
+                  },
+                  "education_speciality": {
+                    "title": "The Education_speciality Schema",
+                    "description": "Специальность (профессия) репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "education_entity": {
+                    "title": "The Education_entity Schema",
+                    "description": "Образовательное учреждение репрессированного лица.",
+                    "bsonType": "string"
+                  },
+                  "education_degree": {
+                    "title": "The Education_degree Schema",
+                    "description": "Ученая степень репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "start_year": {
+                    "title": "The Start_year Schema",
+                    "description": "Год начала обучения (нормализованный)",
+                    "bsonType": "int"
+                  },
+                  "end_year": {
+                    "title": "The End_year Schema",
+                    "description": "Год окончания обучения репрессированного лица",
+                    "bsonType": "int"
+                  },
+                  "raw_education": {
+                    "title": "The Raw_education Schema",
+                    "description": "Информация об образовании репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_education",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "job": {
+              "title": "The Job Schema",
+              "description": "Список мест работы репрессированного лица до ареста из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Место работы репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "job_type": {
+                    "title": "The Job_type Schema",
+                    "description": "Отрасль народного хозяйства (нормализованная)",
+                    "bsonType": "string"
+                  },
+                  "job_place": {
+                    "title": "The Job_place Schema",
+                    "description": "Место работы репрессированного лица",
+                    "bsonType": "string"
+                  },
+                  "job_title": {
+                    "title": "The Job_title Schema",
+                    "description": "Должность репрессированного лица.",
+                    "bsonType": "string"
+                  },
+                  "raw_job": {
+                    "title": "The Raw_job Schema",
+                    "description": "Место работы репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "start_year": {
+                    "title": "The Start_year Schema",
+                    "description": "Год начала работы (нормализованный)",
+                    "bsonType": "int"
+                  },
+                  "end_year": {
+                    "title": "The End_year Schema",
+                    "description": "Год окончания работы репрессированного лица",
+                    "bsonType": "int"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_job",
+                  "data_source",
+                  "start_year",
+                  "input_date"
+                ]
+              }
+            },
+            "party": {
+              "title": "The Party Schema",
+              "description": "Список вариантов партийной принадлежности репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант партийной принадлежности репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "party": {
+                    "title": "The Party Schema",
+                    "description": "Партийная принадлежность репрессированного лица (Нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "raw_party": {
+                    "title": "The Raw_party Schema",
+                    "description": "Партийная принадлежность репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_party",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "military_rank": {
+              "title": "The Military_rank Schema",
+              "description": " Список вариантов воинских (специальных) званий репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант воинского (специального) звания репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "military_rank": {
+                    "title": "The Military_rank Schema",
+                    "description": "Воинское (специальное) звание репрессированного лица.",
+                    "bsonType": "string"
+                  },
+                  "military_rank_body": {
+                    "title": "The Military_rank_body Schema",
+                    "description": "Орган, присвоивший воинское (специальное) звание репрессированному лицу.",
+                    "bsonType": "string"
+                  },
+                  "raw_military_rank": {
+                    "title": "The Raw_military_rank Schema",
+                    "description": "Информация о воинском звании репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_military_rank",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "address": {
+              "title": "The Address Schema",
+              "description": "Список адресов мест проживания репрессированного лица из следственного дела",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Адрес места жительства репрессированного лица из следственного дела",
+                "bsonType": "object",
+                "properties": {
+                  "country": {
+                    "title": "The Country Schema",
+                    "description": "Страна проживания репрессированнного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "republic": {
+                    "title": "The Republic Schema",
+                    "description": "Республика проживания репрессированного лица (нормализованная). ",
+                    "bsonType": "string"
+                  },
+                  "region": {
+                    "title": "The Region Schema",
+                    "description": "Область (Губерния) проживания репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "district": {
+                    "title": "The District Schema",
+                    "description": "Район (Уезд) проживания репрессированного лица (нормализованный).",
+                    "bsonType": "string"
+                  },
+                  "city": {
+                    "title": "The City Schema",
+                    "description": "Населенный пункт проживания репрессированного лица",
+                    "bsonType": "string"
+                  },
+                  "street": {
+                    "title": "The Street Schema",
+                    "description": "Улица проживания репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "house": {
+                    "title": "The House Schema",
+                    "description": "Номер дома проживания репрессированного лица (нормализованный).",
+                    "bsonType": "string"
+                  },
+                  "flat": {
+                    "title": "The Flat Schema",
+                    "description": "Номер квартиры проживания репрессированного лица (нормализованный).",
+                    "bsonType": "string"
+                  },
+                  "raw_address": {
+                    "title": "The Raw_address Schema",
+                    "description": "Адрес места жительства репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  },
+                  "location": {
+                    "title": "The Location Schema",
+                    "description": "Геопространственные данные места жительства репрессированного лица.",
+                    "bsonType": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "type": {
+                        "title": "The Type Schema",
+                        "description": "Тип геометрического объекта. Допустимые значения: \"Point\", \"MultiPoint\", \"Polygon\", \"MultiPolygon\" ",
+                        "bsonType": "string"
+                      },
+                      "coordinates": {
+                        "title": "The Coordinates Schema",
+                        "description": "Географические координаты в соответствии со стандартом GeoJson.",
+                        "bsonType": "string"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "raw_address",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "family_status": {
+              "title": "The Family_status Schema",
+              "description": "Список вариантов семейного положения репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант семейного положения репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "family_status": {
+                    "enum": [
+                      "single",
+                      "married",
+                      "divorced",
+                      "None"
+                    ],
+                    "title": "The Family_status Schema",
+                    "description": " Семейное положение репрессированного лица (нормализованное)."
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "arrest_date": {
+              "title": "The Arrest_date Schema",
+              "description": "Список вариантов дат ареста репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант даты ареста репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "day": {
+                    "title": "The Day Schema",
+                    "description": "День ареста репрессированного лица (нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "month": {
+                    "title": "The Month Schema",
+                    "description": "Месяц ареста репрессированного лица (нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "year": {
+                    "title": "The Year Schema",
+                    "description": "Год ареста репрессированного лица (нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "raw_arrest_date": {
+                    "title": "The Raw_arrest_date Schema",
+                    "description": "Дата ареста репрессированного лица как в следственном деле (с опечатками, описками и т.д.). Нечитаемые буквы можно заменить символом '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_arrest_date",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "arrest_body": {
+              "title": "The Arrest_body Schema",
+              "description": "Список вариантов структур, осуществивших арест из следственного дела",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант сруктуры, осуществившей арест из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "country": {
+                    "title": "The Country Schema",
+                    "description": " Страна ареста репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "republic": {
+                    "title": "The Republic Schema",
+                    "description": "Республика ареста репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "region": {
+                    "title": "The Region Schema",
+                    "description": "Область (Губерния) ареста репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "district": {
+                    "title": "The District Schema",
+                    "description": "Район (Уезд) ареста репрессированного лица (нормализованный).",
+                    "bsonType": "string"
+                  },
+                  "city": {
+                    "title": "The City Schema",
+                    "description": "Населенный пункт ареста репрессированного лица (нормализованный). ",
+                    "bsonType": "string"
+                  },
+                  "arrest_body": {
+                    "title": "The Arrest_body Schema",
+                    "description": "Структура, осуществившая арест репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "raw_address": {
+                    "title": "The Raw_address Schema",
+                    "description": "Место ареста репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'. ",
+                    "bsonType": "string"
+                  },
+                  "raw_arrest_body": {
+                    "title": "The Raw_arrest_body Schema",
+                    "description": "Структура, осуществившая арест репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'. ",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_address",
+                  "raw_arrest_body",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "arrest_imputation": {
+              "title": "The Arrest_imputation Schema",
+              "description": "Список вариантов формулировок обвинения при аресте репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант формулировки обвинения репрессированного лица при аресте из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "arrest_imputation": {
+                    "title": "The Arrest_imputation Schema",
+                    "description": "Формулировка обвинения репрессированного лица при аресте (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "raw_arrest_imputation": {
+                    "title": "The Raw_arrest_imputation Schema",
+                    "description": "Формулировка обвинения репрессированного лица при аресте как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_arrest_imputation",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "arrest_asset": {
+              "title": "The Arrest_asset Schema",
+              "description": "Список вариантов статей УК при аресте репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант статей УК при аресте репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "arrest_assets": {
+                    "title": "The Arrest_assets Schema",
+                    "description": "Статьи УК при аресте репрессированного лица (нормализованные).",
+                    "bsonType": "array",
+                    "items": {
+                      "title": "The Items Schema",
+                      "description": "Статья УК при аресте",
+                      "bsonType": "object",
+                      "required": [
+                        "arrest_asset"
+                      ],
+                      "properties": {
+                        "arrest_asset": {
+                          "title": "The Arrest_asset Schema",
+                          "description": "Номер статьи УК и пункта (подпункта) при аресте",
+                          "bsonType": "string"
+                        }
+                      }
+                    }
+                  },
+                  "raw_arrest_assets": {
+                    "title": "The Raw_arrest_assets Schema",
+                    "description": " Статьи УК при аресте как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_arrest_assets",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "investigators": {
+              "title": "The Investigators Schema",
+              "description": "Список вариантов следователей по делу репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант ФИО следователей по делу репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "investigators_ext_link": {
+                    "title": "The Investigators_ext_link Schema",
+                    "description": "Ссылка на карточку следователя во внешней базе данных",
+                    "bsonType": "string"
+                  },
+                  "investigators_int_link": {
+                    "title": "The Investigators_int_link Schema",
+                    "description": "Ссылка на карточку следователя в этой базе данных (как на репрессированное лицо).",
+                    "bsonType": "string"
+                  },
+                  "first_name": {
+                    "title": "The First_name Schema",
+                    "description": "Имя следователя по делу репрессированного лица (нормализованное). Если в источнике данных указаны инициалы - указать первую букву инициалов  имени с точкой.",
+                    "bsonType": "string"
+                  },
+                  "middle_name": {
+                    "title": "The Middle_name Schema",
+                    "description": "Отчество следователя по делу репрессированного лица (нормализованное). Если в источнике данных указаны инициалы - указать первую букву инициалов отчества с точкой.",
+                    "bsonType": "string"
+                  },
+                  "last_name": {
+                    "title": "The Last_name Schema",
+                    "description": "Фамилия следователя по делу репрессированного лица (нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "raw_full_name": {
+                    "title": "The Raw_full_name Schema",
+                    "description": "ФИО следователя по делу репрессированного лица как в следственном деле (с опечатками, описками и т.д.). Нечитаемые буквы можно заменить символом '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_full_name",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "confession": {
+              "title": "The Confession Schema",
+              "description": "Список вариантов признания вины репрессированным лицом из следственного дела",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант признания вины репрессированным лицом из следственного дела",
+                "bsonType": "object",
+                "properties": {
+                  "confession": {
+                    "enum": [
+                      "Признаёт полностью",
+                      "Признаёт частично",
+                      "Не признаёт"
+                    ],
+                    "title": "The Confession Schema",
+                    "description": "An explanation about the purpose of this instance."
+                  },
+                  "raw_confession": {
+                    "title": "The Raw_confession Schema",
+                    "description": "Информация о признании вины репрессированным лицом как в следственном деле (с опечатками, описками и т.д.). Нечитаемые буквы можно заменить символом '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_confession",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "judgement_date": {
+              "title": "The Judgement_date Schema",
+              "description": "Список вариантов даты принятия решения по делу репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант даты решения по делу репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "day": {
+                    "title": "The Day Schema",
+                    "description": "День принятия решения по делу репрессированного лица (Нормализованный)",
+                    "bsonType": "int"
+                  },
+                  "month": {
+                    "title": "The Month Schema",
+                    "description": "Месяц принятия решения по делу репрессированного лица (Нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "year": {
+                    "title": "The Year Schema",
+                    "description": "Год принятия решения по делу репрессированного лица (Нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "raw_judgement_date": {
+                    "title": "The Raw_judgement_date Schema",
+                    "description": "Дата принятия решения по делу репрессированного лица как следственном деле (с опечатками, описками и т.д.). Нечитаемые буквы можно заменить символом '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_judgement_date"
+                ]
+              }
+            },
+            "judgement_body": {
+              "title": "The Judgement_body Schema",
+              "description": "Список вариантов структуры, вынесшей решение по делу репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант структуры, вынесшей решение по делу репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "judgement_body": {
+                    "title": "The Judgement_body Schema",
+                    "description": "Структура, вынесшая решение по делу репрессированного лица (Нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "raw_judgeent_body": {
+                    "title": "The Raw_judgeent_body Schema",
+                    "description": "Структура, вынесшая решение по делу репрессированного лица как в следственном деле (с опечатками, описками и т.д.). Нечитаемые буквы можно заменить символом '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_judgeent_body",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "judgement_imputation": {
+              "title": "The Judgement_imputation Schema",
+              "description": "Список вариантов формулировки обвинения в решении по делу репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": " Вариант формулировки обвинения в решении по делу репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "judgement_imputation": {
+                    "title": "The Judgement_imputation Schema",
+                    "description": "Формулировка обвинения в решении по делу репрессированного лица (Нормализованное).",
+                    "bsonType": "string"
+                  },
+                  "raw_judgement_imputation": {
+                    "title": "The Raw_judgement_imputation Schema",
+                    "description": "Формулировка обвинения в решении по делу репрессированного лица как в следственном деле (с опечатками, описками и т.д.). Нечитаемые буквы можно заменить символом '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_judgement_imputation",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "judgement_asset": {
+              "title": "The judgement_asset Schema",
+              "description": "Список вариантов статей УК в решении по делу репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант статей УК в решении по делу репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "judgement_assets": {
+                    "title": "The judgement_assets Schema",
+                    "description": "Статьи УК в решении по делу репрессированного лица (нормализованные).",
+                    "bsonType": "array",
+                    "items": {
+                      "title": "The Items Schema",
+                      "description": "Статья УК в решении по делу репрессированного лица",
+                      "bsonType": "object",
+                      "required": [
+                        "judgement_asset"
+                      ],
+                      "properties": {
+                        "judgement_asset": {
+                          "title": "The judgement_asset Schema",
+                          "description": "Номер статьи УК и пункта (подпункта) в решении по делу репрессированного лица.",
+                          "bsonType": "string"
+                        }
+                      }
+                    }
+                  },
+                  "raw_judgement_assets": {
+                    "title": "The Raw_judgement_assets Schema",
+                    "description": " Статьи УК в решении по делу репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_judgement_assets",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "retrial_date": {
+              "title": "The Retrial_date Schema",
+              "description": "Список вариантов даты принятия решения о пересмотре дела репрессированного лица",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант даты принятия решения о пересмотре дела репрессированного лица",
+                "bsonType": "object",
+                "properties": {
+                  "day": {
+                    "title": "The Day Schema",
+                    "description": "День принятия решения по пересмотру дела репрессированного лица (Нормализованный)",
+                    "bsonType": "int"
+                  },
+                  "month": {
+                    "title": "The Month Schema",
+                    "description": "Месяц принятия решения по пересмотру дела репрессированного лица (Нормализованный)",
+                    "bsonType": "int"
+                  },
+                  "year": {
+                    "title": "The Year Schema",
+                    "description": "Год принятия решения по пересмотру дела репрессированного лица (Нормализованный)",
+                    "bsonType": "int"
+                  },
+                  "raw_retrial_date": {
+                    "title": "The Raw_retrial_date Schema",
+                    "description": "Дата принятия решения о пересмотре дела репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_retrial_date",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "retrial_body": {
+              "title": "The Retrial_body Schema",
+              "description": "Список вариантов структуры, вынесшей решение по пересмотру деля репрессированного лица",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант структуры, вынесшей решение по пересмотру деля репрессированного лица",
+                "bsonType": "object",
+                "properties": {
+                  "retrial_body": {
+                    "title": "The Retrial_body Schema",
+                    "description": "Структура, вынесшая решение по пересмотру деля репрессированного лица (Нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "raw_retrial_body": {
+                    "title": "The Raw_retrial_body Schema",
+                    "description": "Структура, вынесшая решение по пересмотру деля репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_retrial_body",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "retrial_imputation": {
+              "title": "The Retrial_imputation Schema",
+              "description": "An explanation about the purpose of this instance.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант формулировки обвинения в решении о пересмотре дела репрессированного лица.",
+                "bsonType": "object",
+                "properties": {
+                  "retrial_type": {
+                    "title": "The Retrial_type Schema",
+                    "description": "Тип решения о пересмотре дела репрессированного лица (Нормализованный).",
+                    "bsonType": "string"
+                  },
+                  "retrial_imputation": {
+                    "title": "The Retrial_imputation Schema",
+                    "description": "Формулировка обвинения в решении о пересмотре дела репрессированного лица (Нормализованная).",
+                    "bsonType": "string"
+                  },
+                  "raw_retrial_imputation": {
+                    "title": "The Raw_retrial_imputation Schema",
+                    "description": "Формулировка обвинения в решении о пересмотре дела репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "raw_data_source": {
+                    "title": "The Raw_data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "imprisonment": {
+              "title": "The Imprisonment Schema",
+              "description": "Список мест отбывания наказания репрессированным лицом",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Место отбывания наказания репрессированным лицом.",
+                "bsonType": "object",
+                "properties": {
+                  "raw_imprisonment_name": {
+                    "title": "The Raw_imprisonment_name Schema",
+                    "description": "Название места отбытия наказания как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "imprisonment_type": {
+                    "title": "The Imprisonment_type Schema",
+                    "description": "Тип места отбывания наказания репрессированным лицом (Нормализованный).",
+                    "bsonType": "string"
+                  },
+                  "end_day": {
+                    "title": "The End_day Schema",
+                    "description": "День освобождения из места отбывания наказания (Нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "end_month": {
+                    "title": "The End_month Schema",
+                    "description": "Месяц освобождения из места отбывания наказания (Нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "end_year": {
+                    "title": "The End_year Schema",
+                    "description": "Год освобождения из места отбывания наказания (Нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "start_day": {
+                    "title": "The Start_day Schema",
+                    "description": "День начала отбывания наказания (Нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "start_month": {
+                    "title": "The Start_month Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "bsonType": "int"
+                  },
+                  "start_year": {
+                    "title": "The Start_year Schema",
+                    "description": "Год начала отбывания наказания (Нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "raw_end_date": {
+                    "title": "The Raw_end_date Schema",
+                    "description": "Дата освобождения репрессированного лица из места отбытия наказания как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "raw_start_date": {
+                    "title": "The Raw_start_date Schema",
+                    "description": "Дата начала отбывания наказания репрессированным лицом как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "rehabilitation": {
+              "title": "The Rehabilitation Schema",
+              "description": "Список вариантов реабилитации репрессированного лица из следственного дела.",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант реабилитации репрессированного лица из следственного дела.",
+                "bsonType": "object",
+                "properties": {
+                  "rehabilitation_body": {
+                    "title": "The Rehabilitation_body Schema",
+                    "description": "Орган, принявший решение о реабилитации репрессированного лица (Нормализованный).",
+                    "bsonType": "string"
+                  },
+                  "day": {
+                    "title": "The Day Schema",
+                    "description": "День принятия решения о реабилитации репрессированного лица (Нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "month": {
+                    "title": "The Month Schema",
+                    "description": "Месяц принятия решения о реабилитации репрессированного лица (Нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "year": {
+                    "title": "The Year Schema",
+                    "description": "Год принятия решения о реабилитации репрессированного лица (Нормализованный).",
+                    "bsonType": "int"
+                  },
+                  "raw_rehabilitation_date": {
+                    "title": "The Raw_rehabilitation_date Schema",
+                    "description": "Дата реабилитации репрессированного лица как в следственном деле (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "raw_rehabilitation_date",
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "archive_details": {
+              "title": "The Archive_details Schema",
+              "description": "Список вариантов архивных реквизитов следственного дела репрессированного лица",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Вариант архивных реквизитов следственного дела репрессированного лица.",
+                "bsonType": "object",
+                "properties": {
+                  "archive_body": {
+                    "title": "The Archive_body Schema",
+                    "description": "Название архива (Нормализованное).",
+                    "bsonType": "string"
+                  },
+                  "archive_fund": {
+                    "title": "The Archive_fund Schema",
+                    "description": "Номер архивного фонда",
+                    "bsonType": "string"
+                  },
+                  "archive_inventory": {
+                    "title": "The Archive_inventory Schema",
+                    "description": "Номер описи",
+                    "bsonType": "string"
+                  },
+                  "archive_number": {
+                    "title": "The Archive_number Schema",
+                    "description": "Номер дела",
+                    "bsonType": "string"
+                  },
+                  "data_source": {
+                    "title": "The Data_source Schema",
+                    "description": "Источник информации внесения записи.",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время внесения информации в базу.",
+                    "bsonType": "date"
+                  }
+                },
+                "required": [
+                  "data_source",
+                  "input_date"
+                ]
+              }
+            },
+            "language": {
+              "title": "The Language Schema",
+              "description": "Язык заполнения карточки следственного дела (Нормализованный).",
+              "bsonType": "string"
+            },
+            "comments": {
+              "title": "The Comments Schema",
+              "description": "Комментарии и замечания к карточке следственного дела",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Комментарий к карточке следственного дела репрессированного лица",
+                "bsonType": "object",
+                "required": [
+                  "comment",
+                  "author",
+                  "input_date"
+                ],
+                "properties": {
+                  "comment": {
+                    "title": "The Comment Schema",
+                    "description": "Текст комментария",
+                    "bsonType": "string"
+                  },
+                  "author": {
+                    "title": "The Author Schema",
+                    "description": "Адрес электронной почты автора комментария",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время добавления комментария",
+                    "bsonType": "date"
+                  }
+                }
+              }
+            },
+            "case_type": {
+              "enum": [
+                "судебное",
+                "внесудебное"
+              ],
+              "title": "The Case_type Schema",
+              "description": "Тип дела репрессированного лица (Нормализованный)."
+            },
+            "age": {
+              "title": "The Age Schema",
+              "description": "Возраст репрессированного лица на момент ареста.",
+              "bsonType": "int"
+            }
+          }
+        }
+      },
+      "death_info": {
+        "title": "The Death_info Schema",
+        "description": "Варианты даты и места смерти репрессированного лица",
+        "bsonType": "object",
+        "properties": {
+          "death_place": {
+            "title": "The Death_place Schema",
+            "description": "Список вариантов места смерти репрессированного лица",
+            "bsonType": "array",
+            "items": {
+              "title": "The Items Schema",
+              "description": "Вариант места смерти репрессированного лица",
+              "bsonType": "object",
+              "properties": {
+                "country": {
+                  "title": "The Country Schema",
+                  "description": "Страна смерти репрессированного лица (Нормализованная).",
+                  "bsonType": "string"
+                },
+                "republic": {
+                  "title": "The Republic Schema",
+                  "description": "Республика смерти репрессированного лица (Нормализованная).",
+                  "bsonType": "string"
+                },
+                "region": {
+                  "title": "The Region Schema",
+                  "description": "Область (Губерния) смерти репрессированного лица (Нормализованная).",
+                  "bsonType": "string"
+                },
+                "district": {
+                  "title": "The District Schema",
+                  "description": "Район (Уезд) смерти репрессированного лица (Нормализованный).",
+                  "bsonType": "string"
+                },
+                "city": {
+                  "title": "The City Schema",
+                  "description": "Населенный пункт смерти репрессированного лица (Нормализованный).",
+                  "bsonType": "string"
+                },
+                "death_place": {
+                  "title": "The Death_place Schema",
+                  "description": "Название места смерти репрессированного лица",
+                  "bsonType": "string"
+                },
+                "raw_death_place": {
+                  "title": "The Raw_death_place Schema",
+                  "description": "Адрес и название места смерти как в источнике данных (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                  "bsonType": "string"
+                },
+                "data_source": {
+                  "title": "The Data_source Schema",
+                  "description": "Источник информации внесения записи.",
+                  "bsonType": "string"
+                },
+                "input_date": {
+                  "title": "The Input_date Schema",
+                  "description": "Дата и время внесения информации в базу.",
+                  "bsonType": "date"
+                },
+                "location": {
+                  "title": "The Location Schema",
+                  "description": "Геопространственные данные места смерти репрессированного лица",
+                  "bsonType": "object",
+                  "required": [
+                    "type",
+                    "coordinates"
+                  ],
+                  "properties": {
+                    "type": {
+                      "enum": [
+                        "Point",
+                        "Polygon",
+                        "MultiPoint",
+                        "MultiPolygon"
+                      ],
+                      "title": "The Type Schema",
+                      "description": "Тип геометрического объекта. Допустимые значения: \"Point\", \"MultiPoint\", \"Polygon\", \"MultiPolygon\""
+                    },
+                    "coordinates": {
+                      "title": "The Coordinates Schema",
+                      "description": "Географические координаты в соответствии со стандартом GeoJson.",
+                      "bsonType": "string"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "raw_death_place",
+                "data_source",
+                "input_date"
+              ]
+            }
+          },
+          "death_date": {
+            "title": "The Death_date Schema",
+            "description": "Список вариантов даты смерти репрессированного лица.",
+            "bsonType": "array",
+            "items": {
+              "title": "The Items Schema",
+              "description": "Вариант даты смерти репрессированного лица",
+              "bsonType": "object",
+              "properties": {
+                "day": {
+                  "title": "The Day Schema",
+                  "description": "День смерти репрессированного лица (Нормализованный).",
+                  "bsonType": "int"
+                },
+                "month": {
+                  "title": "The Month Schema",
+                  "description": "Месяц смерти репрессированного лица (Нормализованный).",
+                  "bsonType": "int"
+                },
+                "year": {
+                  "title": "The Year Schema",
+                  "description": "Год смерти репрессированного лица (Нормализованный).",
+                  "bsonType": "int"
+                },
+                "raw_death_date": {
+                  "title": "The Raw_death_date Schema",
+                  "description": "Дата смерти репрессированного лица как в источнике данных (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                  "bsonType": "string"
+                },
+                "date_source": {
+                  "title": "The Date_source Schema",
+                  "description": "Источник информации внесения записи.",
+                  "bsonType": "string"
+                },
+                "input_date": {
+                  "title": "The Input_date Schema",
+                  "description": "Дата и время внесения информации в базу.",
+                  "bsonType": "date"
+                }
+              },
+              "required": [
+                "raw_death_date",
+                "date_source",
+                "input_date"
+              ]
+            }
+          },
+          "burial_place": {
+            "title": "The Burial_place Schema",
+            "description": "Список вариантов места захоронения репрессированного лица.",
+            "bsonType": "array",
+            "items": {
+              "title": "The Items Schema",
+              "description": "Вариант места захоронения репрессированного лица",
+              "bsonType": "object",
+              "properties": {
+                "country": {
+                  "title": "The Country Schema",
+                  "description": "Страна захоронения репрессированного лица (Нормализованная).",
+                  "bsonType": "string"
+                },
+                "republic": {
+                  "title": "The Republic Schema",
+                  "description": "Республика захоронения репрессированного лица (Нормализованная).",
+                  "bsonType": "string"
+                },
+                "region": {
+                  "title": "The Region Schema",
+                  "description": "Область (Губерния) захоронения репрессированного лица (Нормализованная).",
+                  "bsonType": "string"
+                },
+                "district": {
+                  "title": "The District Schema",
+                  "description": "Район (Уезд) захоронения репрессированного лица (Нормализованный).",
+                  "bsonType": "string"
+                },
+                "city": {
+                  "title": "The City Schema",
+                  "description": "Населенный пункт захоронения репрессированного лица (Нормализованный).",
+                  "bsonType": "string"
+                },
+                "burial_place": {
+                  "title": "The Burial_place Schema",
+                  "description": "Название места захоронения.",
+                  "bsonType": "string"
+                },
+                "raw_burial_place": {
+                  "title": "The Raw_burial_place Schema",
+                  "description": "Адрес и название места захоронения как в источнике данных (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+                  "bsonType": "string"
+                },
+                "data_source": {
+                  "title": "The Data_source Schema",
+                  "description": "Источник информации внесения записи.",
+                  "bsonType": "string"
+                },
+                "input_date": {
+                  "title": "The Input_date Schema",
+                  "description": "Дата и время внесения информации в базу.",
+                  "bsonType": "date"
+                },
+                "location": {
+                  "title": "The Location Schema",
+                  "description": "Геопространственные данные места захоронения репрессированного лица",
+                  "bsonType": "object",
+                  "required": [
+                    "type",
+                    "coordinates"
+                  ],
+                  "properties": {
+                    "type": {
+                      "enum": [
+                        "Point",
+                        "Polygon",
+                        "MultiPolygon",
+                        "MultiPoint"
+                      ],
+                      "title": "The Type Schema",
+                      "description": "Тип геометрического объекта. Допустимые значения: \"Point\", \"MultiPoint\", \"Polygon\", \"MultiPolygon\""
+                    },
+                    "coordinates": {
+                      "title": "The Coordinates Schema",
+                      "description": "Географические координаты в соответствии со стандартом GeoJson.",
+                      "bsonType": "string"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "raw_burial_place",
+                "data_source",
+                "input_date"
+              ]
+            }
+          }
+        }
+      },
+      "comments": {
+        "title": "The Comments Schema",
+        "description": "Список комментариев к карточке репрессированного лица или её элементу.",
+        "bsonType": "array",
+        "items": {
+          "title": "The Items Schema",
+          "description": "Комментарий к карточке репрессированного лица или её элементу.",
+          "bsonType": "object",
+          "required": [
+            "comment",
+            "author",
+            "input_date"
+          ],
+          "properties": {
+            "comment": {
+              "title": "The Comment Schema",
+              "description": "Текст комментария",
+              "bsonType": "string"
+            },
+            "author": {
+              "title": "The Author Schema",
+              "description": "Адрес электронной почты автора комментария.",
+              "bsonType": "string"
+            },
+            "input_date": {
+              "title": "The Input_date Schema",
+              "description": "Дата и время добавления комментария",
+              "bsonType": "string"
+            }
+          }
+        }
+      },
+      "images": {
+        "title": "The Images Schema",
+        "description": "Список изображений, связанных с репрессированным лицом.",
+        "bsonType": "array",
+        "items": {
+          "title": "The Items Schema",
+          "description": "Изображение, связанное с репрессированным лицом",
+          "bsonType": "object",
+          "properties": {
+            "personal_image": {
+              "title": "The Personal_image Schema",
+              "description": "Список персональных фотографий репрессированного лица",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Персональная фотография репрессированного лица",
+                "bsonType": "object",
+                "required": [
+                  "image_link",
+                  "input_date"
+                ],
+                "properties": {
+                  "image_link": {
+                    "title": "The Image_link Schema",
+                    "description": "Ссылка на персональную фотографию репрессированного лица",
+                    "bsonType": "string"
+                  },
+                  "caption": {
+                    "title": "The Caption Schema",
+                    "description": "Описание персональной фотографии репрессированного лица",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время добавления фотографии",
+                    "bsonType": "date"
+                  }
+                }
+              }
+            },
+            "related_images": {
+              "title": "The Related_images Schema",
+              "description": "Список изображений, связанных с репрессированным лицом (кроме персональной фотографии)",
+              "bsonType": "array",
+              "items": {
+                "title": "The Items Schema",
+                "description": "Изображение, связанное с репрессированным лицом (кроме персональной фотографии).",
+                "bsonType": "object",
+                "required": [
+                  "image_link",
+                  "input_date"
+                ],
+                "properties": {
+                  "image_link": {
+                    "title": "The Image_link Schema",
+                    "description": "Ссылка на изображение",
+                    "bsonType": "string"
+                  },
+                  "caption": {
+                    "title": "The Caption Schema",
+                    "description": "Описание изображения",
+                    "bsonType": "string"
+                  },
+                  "input_date": {
+                    "title": "The Input_date Schema",
+                    "description": "Дата и время добавление фотографии",
+                    "bsonType": "date"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "relatives": {
+        "title": "The Relatives Schema",
+        "description": "Список родственников репрессированного лица",
+        "bsonType": "array",
+        "items": {
+          "title": "The Items Schema",
+          "description": "Родственник репрессированного лица",
+          "bsonType": "object",
+          "properties": {
+            "relative_first_name": {
+              "title": "The Relative_first_name Schema",
+              "description": "Имя родственника (Нормализованное).",
+              "bsonType": "string"
+            },
+            "relative_middle_name": {
+              "title": "The Relative_middle_name Schema",
+              "description": "Отчество родственника (Нормализованное).",
+              "bsonType": "string"
+            },
+            "relative_last_name": {
+              "title": "The Relative_last_name Schema",
+              "description": "Фамилия родственника (Нормализованная).",
+              "bsonType": "string"
+            },
+            "day": {
+              "title": "The Day Schema",
+              "description": "День рождения родственника (Нормализованный)",
+              "bsonType": "int"
+            },
+            "month": {
+              "title": "The Month Schema",
+              "description": "Месяц рождения родственника (Нормализованный)",
+              "bsonType": "int"
+            },
+            "year": {
+              "title": "The Year Schema",
+              "description": "Год рождения родственника (Нормализованный)",
+              "bsonType": "int"
+            },
+            "raw_relative_birthday": {
+              "title": "The Raw_relative_birthday Schema",
+              "description": "Дата рождения родственника репрессированного лица как в источнике данных (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+              "bsonType": "string"
+            },
+            "raw_relative_full_name": {
+              "title": "The Raw_relative_full_name Schema",
+              "description": "ФИО родственника репрессированного лица как в источнике данных (с опечатками, описками и т.п.). Нечитаемые буквы можно заменять знаком '_'.",
+              "bsonType": "string"
+            },
+            "relative_type": {
+              "title": "The Relative_type Schema",
+              "description": "Тип родственной связи с репрессированным лицом",
+              "bsonType": "string"
+            },
+            "relative_int_link": {
+              "title": "The Relative_int_link Schema",
+              "description": "Ссылка на карточку родственника как репрессированного лица в этой базе.",
+              "bsonType": "string"
+            },
+            "relative_ext_link": {
+              "title": "The Relative_ext_link Schema",
+              "description": "Ссылка на карточку родственника во внешней базе данных.",
+              "bsonType": "string"
+            },
+            "data_source": {
+              "title": "The Data_source Schema",
+              "description": "Источник информации внесения записи.",
+              "bsonType": "string"
+            },
+            "input_date": {
+              "title": "The Input_date Schema",
+              "description": "Дата и время внесения информации в базу.",
+              "bsonType": "date"
+            }
+          },
+          "required": [
+            "month",
+            "data_source",
+            "input_date"
+          ]
+        }
+      },
+      "merged": {
+        "title": "The Merged Schema",
+        "description": "Ссылка на карточку репрессированного лица внутри базы данных, в которую были перенесены данные из этой карточки.",
+        "bsonType": "string"
+      },
+      "arrests_count": {
+        "title": "The Arrests_count Schema",
+        "description": "Количество арестов репрессированного лица",
+        "bsonType": "int"
+      }
+    }
+  }
+}
